@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Unreal</string>
+    <string name="settings">设置</string>
+    <string name="module">模块</string>
+    <string name="force_show_permission_lack">强制显示权限缺失提示</string>
+    <string name="temporarily_disable_module">临时关闭模块</string>
+    <string name="temporarily_disable_module_desc">当模块在运行过程中出现技术性故障或Bug的时候，临时关闭模块的所有Hook操作</string>
+    <string name="enable_audio">播放视频声音</string>
+    <string name="enable_audio_desc">开启后将在相机预览界面播放视频声音，同时录制的视频也会带有声音</string>
+    <string name="force_private_dir">强制每个应用程序使用私有目录</string>
+    <string name="disable_toast">关闭提示消息</string>
+
+    <string name="apps">应用</string>
+    <string name="home">主页</string>
+
+    <string name="app_config">应用配置</string>
+    <string name="permission_lack_warning">该应用尚未获取读取外部存储或访问外部存储的权限，设置可能无法生效，点击按钮打开应用详情页授予权限</string>
+    <string name="open">打开</string>
+    <string name="external_dir">外置目录: </string>
+    <string name="enable">启用</string>
+    <string name="select_video">选择视频</string>
+    <string name="non_camera_app">非相机应用</string>
+    <string name="non_camera_app_desc">此应用非相机应用，选择虚拟视频可能对该应用没有任何效果，您确定要继续吗？</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+
+    <string name="activated">已激活</string>
+    <string name="not_activated">未激活</string>
+    <string name="version">版本: </string>
+    <string name="select_global_video">选择全局视频</string>
+
+    <string name="apps_count">应用 (%1$d)</string>
+    <string name="sort_app_name">应用名称</string>
+    <string name="sort_install_time">安装时间</string>
+    <string name="sort_update_time">更新时间</string>
+    <string name="sort_package_name">应用包名</string>
+    <string name="show_camera_apps">相机应用</string>
+    <string name="show_system_apps">系统应用</string>
+    <string name="reverse_order">倒序</string>
+    <string name="enabled">已启用</string>
+</resources>

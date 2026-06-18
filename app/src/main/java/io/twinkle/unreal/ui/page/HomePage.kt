@@ -125,13 +125,13 @@ fun HomePage(vm: MainViewModel = viewModel(), isActivated: Boolean = false) {
                 }
                 Column {
                     Text(
-                        text = if (isActivated) "已激活" else "未激活",
+                        text = if (isActivated) stringResource(id = R.string.activated) else stringResource(id = R.string.not_activated),
                         fontSize = 15.sp,
                         fontWeight = if (isActivated) FontWeight.Bold else FontWeight.Normal
                     )
                     Spacer(Modifier.height(3.dp))
                     Text(
-                        text = "版本: ${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE}) - ${BuildConfig.BUILD_TYPE}",
+                        text = stringResource(id = R.string.version) + "${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE}) - ${BuildConfig.BUILD_TYPE}",
                         fontSize = 13.sp
                     )
                 }
@@ -184,7 +184,7 @@ fun HomePage(vm: MainViewModel = viewModel(), isActivated: Boolean = false) {
                         )
                         .clip(RoundedCornerShape(16.dp))
                 )
-                Text(text = "选择全局视频", modifier = Modifier.padding(start = 32.dp))
+                Text(text = stringResource(id = R.string.select_global_video), modifier = Modifier.padding(start = 32.dp))
 
                 if (uiState.globalVideoExists) {
                     IconButton(

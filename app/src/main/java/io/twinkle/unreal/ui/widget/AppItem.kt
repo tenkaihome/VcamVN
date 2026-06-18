@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -58,7 +59,7 @@ fun AppItem(
                 if (isEnable) {
                     Spacer(Modifier.height(3.dp))
                     Text(
-                        text = "已启用",
+                        text = stringResource(id = R.string.enabled),
                         color = MaterialTheme.colorScheme.primary,
                         fontSize = 15.sp
                     )

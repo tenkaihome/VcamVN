@@ -19,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -47,7 +48,11 @@ fun MainScreen(
     isActivated: Boolean = false
 ) {
     val pagerState = rememberPagerState(initialPage = 1) { 3 }
-    val items = listOf("应用", "主页", "设置")
+    val items = listOf<String>(
+        stringResource(id = R.string.apps),
+        stringResource(id = R.string.home),
+        stringResource(id = R.string.settings)
+    )
     val mainViewModel = viewModel<MainViewModel>()
 
     LaunchedEffect(key1 = Unit) {

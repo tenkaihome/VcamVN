@@ -29,6 +29,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewModelScope
@@ -62,7 +63,7 @@ fun SettingsPage(vm: SettingsViewModel) {
             LargeTopAppBar(
                 title = {
                     Column {
-                        Text(text = "设置")
+                        Text(text = stringResource(id = R.string.settings))
                         Spacer(Modifier.height(2.dp))
                         Text(
                             text = "${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE}) - ${BuildConfig.BUILD_TYPE}",
@@ -91,14 +92,14 @@ fun SettingsPage(vm: SettingsViewModel) {
 
                 SettingsGroup(title = {
                     Text(
-                        text = "模块",
+                        text = stringResource(id = R.string.module),
                         fontSize = 15.sp,
                         modifier = Modifier.padding(start = 16.dp)
                     )
                 }) {
                     SettingsSwitch(
                         state = uiState.forceShowPermissionErr,
-                        title = { Text(text = "强制显示权限缺失提示") },
+                        title = { Text(text = stringResource(id = R.string.force_show_permission_lack)) },
                         icon = {
                             Box(
                                 modifier = Modifier.size(56.dp),
@@ -124,10 +125,10 @@ fun SettingsPage(vm: SettingsViewModel) {
 
                     SettingsSwitch(
                         state = uiState.temporarilyDisableModule,
-                        title = { Text(text = "临时关闭模块") },
+                        title = { Text(text = stringResource(id = R.string.temporarily_disable_module)) },
                         subtitle = {
                             Text(
-                                text = "当模块在运行过程中出现技术性故障或Bug的时候，临时关闭模块的所有Hook操作",
+                                text = stringResource(id = R.string.temporarily_disable_module_desc),
                                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
                             )
                         },
@@ -156,10 +157,10 @@ fun SettingsPage(vm: SettingsViewModel) {
 
                     SettingsSwitch(
                         state = uiState.enableAudio,
-                        title = { Text(text = "播放视频声音") },
+                        title = { Text(text = stringResource(id = R.string.enable_audio)) },
                         subtitle = {
                             Text(
-                                text = "开启后将在相机预览界面播放视频声音，同时录制的视频也会带有声音",
+                                text = stringResource(id = R.string.enable_audio_desc),
                                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
                             )
                         },
@@ -188,7 +189,7 @@ fun SettingsPage(vm: SettingsViewModel) {
 
                     SettingsSwitch(
                         state = uiState.forcePrivateDir,
-                        title = { Text(text = "强制每个应用程序使用私有目录") },
+                        title = { Text(text = stringResource(id = R.string.force_private_dir)) },
                         icon = {
                             Box(
                                 modifier = Modifier.size(56.dp),
@@ -214,7 +215,7 @@ fun SettingsPage(vm: SettingsViewModel) {
 
                     SettingsSwitch(
                         state = uiState.disableToast,
-                        title = { Text(text = "关闭提示消息") },
+                        title = { Text(text = stringResource(id = R.string.disable_toast)) },
                         icon = {
                             Box(
                                 modifier = Modifier.size(56.dp),

@@ -56,6 +56,7 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -127,7 +128,7 @@ fun AppDetailScreen(
 
     Scaffold(topBar = {
         TopAppBar(
-            title = { Text(text = "应用配置") },
+            title = { Text(text = stringResource(id = R.string.app_config)) },
             colors = TopAppBarDefaults.largeTopAppBarColors(
                 containerColor = MaterialTheme.colorScheme.surface,
                 scrolledContainerColor = MaterialTheme.colorScheme.surface
@@ -149,17 +150,17 @@ fun AppDetailScreen(
         ) {
             WarningBar(
                 visible = !hasPermission,
-                text = { Text(text = "该应用尚未获取读取外部存储或访问外部存储的权限，设置可能无法生效，点击按钮打开应用详情页授予权限") },
+                text = { Text(text = stringResource(id = R.string.permission_lack_warning)) },
                 actions = {
                     TextButton(onClick = { AppUtils.launchAppDetailsSettings(packageInfo.applicationInfo.packageName) }) {
-                        Text(text = "打开")
+                        Text(text = stringResource(id = R.string.open))
                     }
                 }
             )
 
             SettingsGroup(title = {
                 Text(
-                    text = "应用",
+                    text = stringResource(id = R.string.apps),
                     fontSize = 15.sp,
                     modifier = Modifier.padding(start = 16.dp)
                 )
@@ -182,7 +183,7 @@ fun AppDetailScreen(
                         isEnable = false
                     )
                     Text(
-                        text = "外置目录: " + Environment.getExternalStorageDirectory().path + "/Android/data/" + packageInfo.applicationInfo.packageName + "/files/unreal/",
+                        text = stringResource(id = R.string.external_dir) + Environment.getExternalStorageDirectory().path + "/Android/data/" + packageInfo.applicationInfo.packageName + "/files/unreal/",
                         modifier = Modifier.padding(start = 88.dp, end = 16.dp),
                         fontSize = 13.sp,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
@@ -191,7 +192,7 @@ fun AppDetailScreen(
 
                 SettingsSwitch(
                     state = uiState.enableUnreal,
-                    title = { Text(text = "启用") },
+                    title = { Text(text = stringResource(id = R.string.enable)) },
                     icon = {
                         Box(
                             modifier = Modifier.size(56.dp),
@@ -260,7 +261,7 @@ fun AppDetailScreen(
                             )
                             .clip(RoundedCornerShape(16.dp))
                     )
-                    Text(text = "选择视频", modifier = Modifier.padding(start = 32.dp))
+                    Text(text = stringResource(id = R.string.select_video), modifier = Modifier.padding(start = 32.dp))
                     if (uiState.videoExits) {
                         IconButton(
                             modifier = Modifier
@@ -277,12 +278,12 @@ fun AppDetailScreen(
 
             if (showDialog) {
                 AlertDialog(
-                    title = { Text(text = "非相机应用") },
-                    text = { Text(text = "此应用非相机应用，选择虚拟视频可能对该应用没有任何效果，您确定要继续吗？") },
+                    title = { Text(text = stringResource(id = R.string.non_camera_app)) },
+                    text = { Text(text = stringResource(id = R.string.non_camera_app_desc)) },
                     onDismissRequest = { showDialog = false },
                     dismissButton = {
                         TextButton(onClick = { showDialog = false }) {
-                            Text(text = "取消")
+                            Text(text = stringResource(id = R.string.cancel))
                         }
                     },
                     confirmButton = {
@@ -290,7 +291,7 @@ fun AppDetailScreen(
                             openSelectVideoLauncher.launch("video/*")
                             showDialog = false
                         }) {
-                            Text(text = "确定")
+                            Text(text = stringResource(id = R.string.confirm))
                         }
                     }
                 )

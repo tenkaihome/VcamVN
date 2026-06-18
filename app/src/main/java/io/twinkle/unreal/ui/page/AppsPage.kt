@@ -40,6 +40,7 @@ import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
@@ -77,7 +78,7 @@ fun AppsPage(activity: ComponentActivity, vm: AppsPageViewModel) {
         topBar = {
             LargeTopAppBar(
                 title = {
-                    Text(text = "应用 (${appList.size})")
+                    Text(text = stringResource(id = R.string.apps_count, appList.size))
                 }, scrollBehavior = scrollBehavior,
                 colors = TopAppBarDefaults.largeTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surface,
@@ -99,7 +100,7 @@ fun AppsPage(activity: ComponentActivity, vm: AppsPageViewModel) {
                             onDismissRequest = { vm.closeDropDownMenu() }
                         ) {
                             DropdownMenuItem(
-                                text = { Text("应用名称") },
+                                text = { Text(stringResource(id = R.string.sort_app_name)) },
                                 onClick = {
                                     vm.sortBy(AppSort.APP_NAME)
                                 },
@@ -110,7 +111,7 @@ fun AppsPage(activity: ComponentActivity, vm: AppsPageViewModel) {
                                 }
                             )
                             DropdownMenuItem(
-                                text = { Text("安装时间") },
+                                text = { Text(stringResource(id = R.string.sort_install_time)) },
                                 onClick = {
                                     vm.sortBy(AppSort.INSTALL_TIME)
                                 },
@@ -121,7 +122,7 @@ fun AppsPage(activity: ComponentActivity, vm: AppsPageViewModel) {
                                 }
                             )
                             DropdownMenuItem(
-                                text = { Text("更新时间") },
+                                text = { Text(stringResource(id = R.string.sort_update_time)) },
                                 onClick = {
                                     vm.sortBy(AppSort.UPDATE_TIME)
                                 },
@@ -132,7 +133,7 @@ fun AppsPage(activity: ComponentActivity, vm: AppsPageViewModel) {
                                 }
                             )
                             DropdownMenuItem(
-                                text = { Text("应用包名") },
+                                text = { Text(stringResource(id = R.string.sort_package_name)) },
                                 onClick = {
                                     vm.sortBy(AppSort.PACKAGE_NAME)
                                 },
@@ -144,7 +145,7 @@ fun AppsPage(activity: ComponentActivity, vm: AppsPageViewModel) {
                             )
                             HorizontalDivider()
                             DropdownMenuItem(
-                                text = { Text("相机应用") },
+                                text = { Text(stringResource(id = R.string.show_camera_apps)) },
                                 onClick = {
                                     val newState = !uiState.showCameraApps
                                     vm.update {
@@ -178,7 +179,7 @@ fun AppsPage(activity: ComponentActivity, vm: AppsPageViewModel) {
                                 }
                             )
                             DropdownMenuItem(
-                                text = { Text("系统应用") },
+                                text = { Text(stringResource(id = R.string.show_system_apps)) },
                                 onClick = {
                                     val newState = !uiState.showSystemApp
                                     vm.update {
@@ -206,7 +207,7 @@ fun AppsPage(activity: ComponentActivity, vm: AppsPageViewModel) {
                                     )
                                 })
                             DropdownMenuItem(
-                                text = { Text("倒序") },
+                                text = { Text(stringResource(id = R.string.reverse_order)) },
                                 onClick = {
                                     vm.update { it.copy(reversed = !uiState.reversed) }
                                     vm.reversed()
