@@ -143,8 +143,8 @@ class HookMain : IYukiHookXposedInit {
                                 try {
                                     Toast.makeText(
                                         toastContent, """
-     不存在替换视频
-     ${this@encase.packageName}当前路径：$video_path
+     Không tìm thấy video thay thế
+     ${this@encase.packageName} đường dẫn hiện tại: $video_path
      """.trimIndent(), Toast.LENGTH_SHORT
                                     ).show()
                                 } catch (ee: Exception) {
@@ -191,8 +191,8 @@ class HookMain : IYukiHookXposedInit {
                                 try {
                                     Toast.makeText(
                                         toastContent, """
-     不存在替换视频
-     ${this@encase.packageName}当前路径：$video_path
+     Không tìm thấy video thay thế
+     ${this@encase.packageName} đường dẫn hiện tại: $video_path
      """.trimIndent(), Toast.LENGTH_SHORT
                                     ).show()
                                 } catch (ee: Exception) {
@@ -246,8 +246,8 @@ class HookMain : IYukiHookXposedInit {
                                     try {
                                         Toast.makeText(
                                             toastContent, """
-     不存在替换视频
-     ${this@encase.packageName}当前路径：$video_path
+     Không tìm thấy video thay thế
+     ${this@encase.packageName} đường dẫn hiện tại: $video_path
      """.trimIndent(), Toast.LENGTH_SHORT
                                         ).show()
                                     } catch (ee: Exception) {
@@ -370,7 +370,7 @@ class HookMain : IYukiHookXposedInit {
                             try {
                                 Toast.makeText(
                                     toastContent,
-                                    "应用：" + this@encase.appInfo.name + "(" + this@encase.packageName + ")" + "触发了录像，但目前无法拦截",
+                                    "Ứng dụng " + this@encase.appInfo.name + "(" + this@encase.packageName + ")" + " đang quay video, nhưng hiện chưa thể can thiệp luồng ghi hình này",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             } catch (ee: Exception) {
@@ -443,8 +443,8 @@ class HookMain : IYukiHookXposedInit {
                                         try {
                                             Toast.makeText(
                                                 toastContent, """
-     ${this@encase.packageName}未授予读取本地目录权限，请检查权限
-     Camera1目前重定向为 
+     ${this@encase.packageName} chưa được cấp quyền đọc thư mục lưu trữ ngoài, vui lòng kiểm tra lại quyền truy cập bộ nhớ
+     Camera1 hiện tại đã được chuyển hướng sang 
      """.trimIndent() + toastContent!!.getExternalFilesDir(null)!!
                                                     .absolutePath + "/unreal/", Toast.LENGTH_SHORT
                                             ).show()
@@ -500,8 +500,8 @@ class HookMain : IYukiHookXposedInit {
                                 try {
                                     Toast.makeText(
                                         toastContent, """
-     不存在替换视频
-     ${this@encase.packageName}当前路径：$video_path
+     Không tìm thấy video thay thế
+     ${this@encase.packageName} đường dẫn hiện tại: $video_path
      """.trimIndent(), Toast.LENGTH_SHORT
                                     ).show()
                                 } catch (ee: Exception) {
@@ -614,8 +614,8 @@ class HookMain : IYukiHookXposedInit {
                                 try {
                                     Toast.makeText(
                                         toastContent, """
-     不存在替换视频
-     ${this@encase.packageName}当前路径：$video_path
+     Không tìm thấy video thay thế
+     ${this@encase.packageName} đường dẫn hiện tại: $video_path
      """.trimIndent(), Toast.LENGTH_SHORT
                                     ).show()
                                 } catch (ee: Exception) {
@@ -676,8 +676,8 @@ class HookMain : IYukiHookXposedInit {
                                 try {
                                     Toast.makeText(
                                         toastContent, """
-     不存在替换视频
-     ${this@encase.packageName}当前路径：$video_path
+     Không tìm thấy video thay thế
+     ${this@encase.packageName} đường dẫn hiện tại: $video_path
      """.trimIndent(), Toast.LENGTH_SHORT
                                     ).show()
                                 } catch (ee: Exception) {
@@ -745,8 +745,8 @@ class HookMain : IYukiHookXposedInit {
                                 try {
                                     Toast.makeText(
                                         toastContent, """
-     不存在替换视频
-     ${this@encase.packageName}当前路径：$video_path
+     Không tìm thấy video thay thế
+     ${this@encase.packageName} đường dẫn hiện tại: $video_path
      """.trimIndent(), Toast.LENGTH_SHORT
                                     ).show()
                                 } catch (ee: Exception) {
@@ -806,8 +806,8 @@ class HookMain : IYukiHookXposedInit {
                                 try {
                                     Toast.makeText(
                                         toastContent, """
-     不存在替换视频
-     ${this@encase.packageName}当前路径：$video_path
+     Không tìm thấy video thay thế
+     ${this@encase.packageName} đường dẫn hiện tại: $video_path
      """.trimIndent(), Toast.LENGTH_SHORT
                                     ).show()
                                 } catch (ee: Exception) {
@@ -844,29 +844,33 @@ class HookMain : IYukiHookXposedInit {
                     override fun beforeHookedMethod(param: MethodHookParam) {
                         YLog.debug(
                             tag = "VcamPro",
-                            msg = "应用创建了渲染器：宽：" + param.args[0] + " 高：" + param.args[1] + "格式" + param.args[2]
+                            msg = "Ứng dụng tạo bộ dựng hình: Rộng: " + param.args[0] + " Cao: " + param.args[1] + " định dạng " + param.args[2]
                         )
-                        c2OriWidth = param.args[0] as Int
-                        c2OriHeight = param.args[1] as Int
-                        imageReaderFormat = param.args[2] as Int
-                        val toast_control =
-                            File(Environment.getExternalStorageDirectory().path + "/DCIM/Camera1/" + "no_toast.jpg")
-                        needToShowToast = !toast_control.exists()
-                        if (toastContent != null && needToShowToast) {
-                            try {
-                                Toast.makeText(
-                                    toastContent, """
-     应用创建了渲染器：
-     宽：${param.args[0]}
-     高：${param.args[1]}
-     一般只需要宽高比与视频相同
+                        val width = param.args[0] as Int
+                        val height = param.args[1] as Int
+                        if (width > 10 && height > 10) {
+                            c2OriWidth = width
+                            c2OriHeight = height
+                            imageReaderFormat = param.args[2] as Int
+                            val toast_control =
+                                File(Environment.getExternalStorageDirectory().path + "/DCIM/Camera1/" + "no_toast.jpg")
+                            needToShowToast = !toast_control.exists()
+                            if (toastContent != null && needToShowToast) {
+                                try {
+                                    Toast.makeText(
+                                        toastContent, """
+     Ứng dụng đã tạo bộ dựng hình (Renderer):
+     Chiều rộng (Width): $width
+     Chiều cao (Height): $height
+     Thông thường chỉ cần tỷ lệ khung hình video khớp với tỷ lệ này.
      """.trimIndent(), Toast.LENGTH_SHORT
-                                ).show()
-                            } catch (e: Exception) {
-                                YLog.debug(
-                                    tag = "VcamPro",
-                                    msg = "[toast]$e"
-                                )
+                                    ).show()
+                                } catch (e: Exception) {
+                                    YLog.debug(
+                                        tag = "VcamPro",
+                                        msg = "[toast]$e"
+                                    )
+                                }
                             }
                         }
                     }
@@ -1061,8 +1065,8 @@ class HookMain : IYukiHookXposedInit {
                             try {
                                 Toast.makeText(
                                     toastContent, """
-     不存在替换视频
-     ${toastContent!!.packageName}当前路径：$video_path
+     Không tìm thấy video thay thế
+     ${toastContent!!.packageName} đường dẫn hiện tại: $video_path
      """.trimIndent(), Toast.LENGTH_SHORT
                                 ).show()
                             } catch (ee: Exception) {
@@ -1289,10 +1293,10 @@ class HookMain : IYukiHookXposedInit {
                             try {
                                 Toast.makeText(
                                     toastContent, """
-     发现拍照
-     宽：$onemwidth
-     高：$onemhight
-     格式：JPEG
+     Đã phát hiện chụp ảnh
+     Chiều rộng: $onemwidth
+     Chiều cao: $onemhight
+     Định dạng: JPEG
      """.trimIndent(), Toast.LENGTH_SHORT
                                 ).show()
                             } catch (e: Exception) {
@@ -1358,10 +1362,10 @@ class HookMain : IYukiHookXposedInit {
                             try {
                                 Toast.makeText(
                                     toastContent, """
-     发现拍照
-     宽：$onemwidth
-     高：$onemhight
-     格式：YUV_420_888
+     Đã phát hiện chụp ảnh
+     Chiều rộng: $onemwidth
+     Chiều cao: $onemhight
+     Định dạng: YUV_420_888
      """.trimIndent(), Toast.LENGTH_SHORT
                                 ).show()
                             } catch (ee: Exception) {
@@ -1405,8 +1409,8 @@ class HookMain : IYukiHookXposedInit {
                 try {
                     Toast.makeText(
                         toastContent, """
-     不存在替换视频
-     ${toastContent!!.packageName}当前路径：$video_path
+      Không tìm thấy video thay thế
+      ${toastContent!!.packageName} đường dẫn hiện tại: $video_path
      """.trimIndent(), Toast.LENGTH_SHORT
                     ).show()
                 } catch (ee: Exception) {
@@ -1455,10 +1459,10 @@ class HookMain : IYukiHookXposedInit {
                             try {
                                 Toast.makeText(
                                     toastContent, """
-     发现预览
-     宽：$mwidth
-     高：$mhight
-     需要视频分辨率与其完全相同
+      Phát hiện xem trước (Preview)
+     Chiều rộng: $mwidth
+     Chiều cao: $mhight
+     Yêu cầu độ phân giải video phải hoàn toàn trùng khớp
      """.trimIndent(), Toast.LENGTH_SHORT
                                 ).show()
                             } catch (ee: Exception) {
